@@ -1,0 +1,76 @@
+<div class="container">
+
+  <%if(error){%>
+    <div class="alert alert-warning">
+        <%=error%>
+    </div>
+    <%}%>
+
+    <!-- JOB TITLE -->
+    <h1 class="job-title">
+      <span class="red"><%=data.job_designation%></span> 
+      <span class="green">opportunity in <%=data.job_location%></span> 
+      <span class="blue">at <%= data.company_name %></span>
+    </h1>
+
+      <div class="text-end mb-4">
+    <% if(locals.user){ %>
+      <a class="btn btn-outline-primary btn-sm me-2" href="/job/update/<%=data.id%>">
+        <i class="bi bi-pencil"></i> Edit
+      </a>
+      <button class="btn btn-outline-danger btn-sm"  onclick= "removeJob('<%= data.id %>')">
+        <i class="bi bi-trash"></i> Delete
+      </button>
+    <% } %>
+  </div>
+
+    <!-- COMPANY INFO -->
+    <div class="company-info d-flex align-items-center">
+      <img src="/<%= data.logo %>" alt="Company Logo">
+      <div>
+        <h5><%= data.company_name %></h5>
+        <div class="job-meta">
+          <span><i class="bi bi-geo-alt"></i> <%= data.job_location %>,  <%= data.job_type %></span>
+          <span><i class="bi bi-calendar-fill"></i> Year founded: <%= data.company_founded %></span>
+          <span><i class="bi bi-people-fill"></i> Number of employees: <%= data.employees %></span>
+          <span><i class="bi bi-currency-rupee"></i>Salary: <%= data.salary %></span>
+          <span><i class="bi bi-bar-chart"></i> Number of openings: <%= data.number_of_openings %></span>
+          <span><i class="bi bi-people-fill"></i>
+          <% 
+            // Get applicants count safely
+            let applicantsCount = 0;
+            if(data.applicants && Array.isArray(data.applicants)) {
+              applicantsCount = data.applicants.length;
+            }
+          %>
+          <% if(locals.user) { %>
+            <a href="/job/<%= data.id %>/all-applicants">Applicants: <%= applicantsCount %></a>
+          <% } else { %> 
+            Applicants: <%= applicantsCount %>
+          <% } %>
+          </span>
+          <span><i class="bi bi-calendar-fill"></i> Apply By: <%= data.apply_by %></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="skills my-3">
+      <% if(data.skills_required && Array.isArray(data.skills_required)) { %>
+        <% data.skills_required.forEach(skill => { %>
+          <span><%= skill %></span>
+        <% }) %>
+      <% } else { %>
+        <span>No skills specified</span>
+      <% } %>
+    </div>
+
+    <!-- APPLY BUTTON -->
+    <a class="apply-button" href="/job/<%=data.id%>/apply">Apply Now</a>
+
+    <!-- POSTED DATE -->
+    <div class="posted-date mt-3">
+      Posted: <%= data.job_posted %>
+    </div>
+
+  </div>

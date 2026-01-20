@@ -1,0 +1,58 @@
+ body {
+      background: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 30px;
+    }
+    .job-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .job-title .red { color: #e74c3c; }
+    .job-title .green { color: #27ae60; }
+    .job-title .blue { color: #1abc9c; }
+    .company-info {
+      margin-bottom: 20px;
+    }
+    .company-info img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-right: 15px;
+    }
+    .job-meta span {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+    .skills span {
+      border: 1px solid #0dcaf0;
+      color: #0dcaf0;
+      padding: 5px 10px;
+      margin-right: 5px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+    .apply-button {
+      display: block;
+      background-color: #1357e8;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      width: 130px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+    .posted-date {
+      display: inline-block;
+      background-color: #198754;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }

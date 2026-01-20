@@ -1,0 +1,113 @@
+<%if(error){%>
+    <div class="alert alert-warning">
+        <%=error%>
+    </div>
+    <%}%>
+
+<div class="modern-form-wrapper">
+  <div class="form-glass-card">
+    <h2 class="form-title">Post a New Job</h2>
+    <form action="/job" method="post" enctype="multipart/form-data">
+      <!-- Job Category -->
+      <div class="input-group">
+        <label for="category" class="input-label">Job Category</label>
+        <select id="category"  name="category" class="input-select">
+          <option selected disabled>Select job category</option>
+          <option value="Tech">Tech</option>
+          <option value="Non-Tech">Non Tech</option>
+        </select>
+      </div>
+
+      <!-- Job Designation -->
+      <div class="input-group">
+        <label for="job_designation" class="input-label">Job Designation</label>
+        <input id="job_designation"  name="job_designation" type="text" class="input-field" placeholder="Enter Job Designation" />
+      </div>
+
+      <!-- Job Location -->
+      <div class="input-group">
+        <label for="job_location" class="input-label">Job Location</label>
+        <input id="job_location"  name="job_location" type="text" class="input-field" placeholder="Enter job location" />
+      </div>
+
+      <!--Job Type-->
+      <div class="input-group">
+        <label for="job_type" class="input-label">Job Type</label>
+        <select id="job_type" name="job_type" class="input-select">
+          <option value="on-site">on-site</option>
+          <option value="remote">remote</option>
+        </select>
+        </div>
+
+      <!-- Company Name -->
+      <div class="input-group">
+        <label for="company_name" class="input-label">Company Name</label>
+        <input id="company_name"  name="company_name" type="text" class="input-field" placeholder="Enter company name" />
+      </div>
+
+      <!-- Company Founded -->
+       <div class="input-group">
+        <label for="company_founded" class="input-label">Year Founded</label>
+        <input id="company_founded"  name="company_founded" type="number" class="input-field" placeholder="Year Founded" />
+        </div>
+
+        <!-- Company Employees -->
+        <div class="input-group">
+          <label for="employees" class="input-label">Number of Employees</label>
+          <input id="employees" name="employees"   type="text" class="input-field" placeholder="Number of Employees" />
+        </div>
+
+      <!-- Salary and Total Positions -->
+      <div class="input-row">
+        <div class="input-group">
+          <label for="salary" class="input-label">Salary</label>
+          <input id="salary"  name="salary" type="text" class="input-field" placeholder="Enter salary" />
+        </div>
+        <div class="input-group">
+          <label for="number_of_openings" class="input-label">Total Positions</label>
+          <input id="number_of_openings"  name="number_of_openings" type="number" class="input-field" placeholder="Total no of openings" />
+        </div>
+        <div class="input-group">
+          <label for="experience" class="input-label">Experience</label>
+          <input id="experience"  name="experience" type="text" class="input-field" placeholder="Experience Required (e.g., 3-5 years)" />
+        </div>
+      </div>
+
+      <!-- Skills Required -->
+      <div class="input-group">
+        <label for="skills_required" class="input-label">Skills Required</label>
+        <select size="5" id="skills_required" name="skills_required" class="input-select multi-select" multiple>
+          <option value="React">React</option>
+          <option value="NodeJs">NodeJs</option>
+          <option value="Angular">Angular</option>
+          <option value="MongoDB">MongoDB</option>
+          <option value="SQL">SQL</option>
+          <option value="Express">Express</option>
+          <option value="Java">Java</option>
+          <option value="SpringBoot">SpringBoot</option>
+          <option value="C++">C++</option>
+          <option value="Creative Writing">Creative Writing</option>
+          <option value="Social Media Management">Social Media Management</option>
+          <option value="Blog Writing">Blog Writing</option>
+          <option value="Business Analyst">Business Analyst</option>
+          <option value="Public Relation Management">Public Relation Management</option>
+          <option value="Advertisement">Advertisement</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="logo" class="input-label">Company Logo (PNG, JPG, JPEG, GIF):</label>
+        <input type="file" name="logo" class="input-field" accept="image/*">
+      </div>
+
+      <!-- Apply By -->
+      <div class="input-group">
+        <label for="apply_by" class="input-label">Apply By</label>
+        <input id="apply_by" name="apply_by" type="date" class="input-field" />
+      </div>
+
+      <!-- Submit Button -->
+      <button class="submit-btn" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

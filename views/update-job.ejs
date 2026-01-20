@@ -1,0 +1,172 @@
+<%if(error){%>
+    <div class="alert alert-warning">
+        <%=error%>
+    </div>
+    <%}%>
+
+<div class="modern-form-wrapper">
+  <div class="form-glass-card">
+    <h2 class="form-title">Update Job</h2>
+    <form action="/job/update/<%=job.id%>" method="post" enctype="multipart/form-data">
+      <!-- Job Category -->
+      <div class="input-group">
+        <label for="category" class="input-label">Job Category</label>
+        <select id="category"  name="category" class="input-select">
+          <option value="" disabled <%= !job.category ? 'selected' : '' %>>Select job category</option>
+          <option value="Tech" <%= job.category === 'Tech' ? 'selected' : '' %>>Tech</option>
+          <option value="Non-Tech" <%= job.category === 'Non-Tech' ? 'selected' : '' %>>Non Tech</option>
+        </select>
+      </div>
+
+      <!-- Job Designation -->
+      <div class="input-group">
+        <label for="job_designation" class="input-label">Job Designation</label>
+        <input id="job_designation" value="<%= job.job_designation %>"
+         name="job_designation" type="text" class="input-field" placeholder="Enter Job Designation" />
+      </div>
+
+      <!-- Job Location -->
+      <div class="input-group">
+        <label for="job_location" class="input-label">Job Location</label>
+        <input id="job_location" value="<%= job.job_location %>"
+         name="job_location" type="text" class="input-field" placeholder="Enter job location" />
+      </div>
+
+      <!-- Job Type -->
+      <div class="input-group">
+        <label for="job_type" class="input-label">Job Type</label>
+        <select id="job_type" name="job_type" class="input-select">
+          <option value="on-site" <%= job.job_type === 'on-site' ? 'selected' : '' %>>on-site</option>
+          <option value="remote" <%= job.job_type === 'remote' ? 'selected' : '' %>>remote</option>
+        </select>
+      </div>
+
+      <!-- Company Name -->
+      <div class="input-group">
+        <label for="company_name" class="input-label">Company Name</label>
+        <input id="company_name" value="<%= job.company_name %>"  name="company_name" type="text" class="input-field" placeholder="Enter company name" />
+      </div>
+
+      <!-- Company Founded -->
+      <div class="input-group">
+        <label for="company_founded" class="input-label">Year Founded</label>
+        <input id="company_founded" value="<%= job.company_founded %>"  name="company_founded" type="number" class="input-field" placeholder="Year Founded" />
+      </div>
+
+      <!-- Company Employees -->
+      <div class="input-group">
+        <label for="employees" class="input-label">Number of Employees</label>
+        <input id="employees" name="employees" value="<%= job.employees %>"  type="text" class="input-field" placeholder="Number of Employees" />
+      </div>
+
+      <!-- Salary and Total Positions -->
+      <div class="input-row">
+        <div class="input-group">
+          <label for="salary" class="input-label">Salary</label>
+          <input id="salary" value="<%= job.salary %>"
+           name="salary" type="text" class="input-field" placeholder="Enter salary" />
+        </div>
+        <div class="input-group">
+          <label for="number_of_openings" class="input-label">Total Positions</label>
+          <input id="number_of_openings" value="<%= job.number_of_openings %>"
+           name="number_of_openings" type="number" class="input-field" placeholder="Total no of openings" />
+        </div>
+        <div class="input-group">
+          <label for="experience" class="input-label">Experience</label>
+          <input id="experience" value="<%= job.experience %>"  name="experience" type="text" class="input-field" placeholder="Experience Required (e.g., 3-5 years)" />
+        </div>
+      </div>
+
+      <!-- Skills Required -->
+      <div class="input-group">
+        <label for="skills_required" class="input-label">Skills Required</label>
+        <select multiple size="5" id="skills_required" name="skills_required[]" class="input-select multi-select">
+          <option disabled>select skills  for this job</option>
+          <!-- Tech Skills -->
+          <option value="JavaScript" <%= job.skills_required.includes('JavaScript') ? 'selected' : '' %>>JavaScript</option>
+          <option value="React" <%= job.skills_required.includes('React') ? 'selected' : '' %>>React</option>
+          <option value="NodeJs" <%= job.skills_required.includes('Node.js') ? 'selected' : '' %>>Node.js</option>
+          <option value="SQL" <%= job.skills_required.includes('SQL') ? 'selected' : '' %>>SQL</option>
+          <option value="Angular" <%= job.skills_required.includes('Angular') ? 'selected' : '' %>>Angular</option>
+          <option value="MongoDB" <%= job.skills_required.includes('MongoDB') ? 'selected' : '' %>>MongoDB</option>
+          <option value="Express" <%= job.skills_required.includes('Express') ? 'selected' : '' %>>Express</option>
+          <option value="Java" <%= job.skills_required.includes('Java') ? 'selected' : '' %>>Java</option>
+          <option value="SpringBoot" <%= job.skills_required.includes('SpringBoot') ? 'selected' : '' %>>SpringBoot</option>
+          <option value="C++" <%= job.skills_required.includes('C++') ? 'selected' : '' %>>C++</option>
+          <option value="Python" <%= job.skills_required.includes('Python') ? 'selected' : '' %>>Python</option>
+          <option value="Machine Learning" <%= job.skills_required.includes('Machine Learning') ? 'selected' : '' %>>Machine Learning</option>
+          <option value="Data Analysis" <%= job.skills_required.includes('Data Analysis') ? 'selected' : '' %>>Data Analysis</option>
+          <option value="Data Visualization" <%= job.skills_required.includes('Data Visualization') ? 'selected' : '' %>>Data Visualization</option>
+          <option value="Data Structures & Algo" <%= job.skills_required.includes('Data Structures & Algo') ? 'selected' : '' %>>Data Structures & Algo</option>
+          <option value="Microservices" <%= job.skills_required.includes('Microservices') ? 'selected' : '' %>>Microservices</option>
+          <option value="AWS" <%= job.skills_required.includes('AWS') ? 'selected' : '' %>>AWS</option>
+          <!-- Design Skills -->
+          <option value="Figma" <%= job.skills_required.includes('Figma') ? 'selected' : '' %>>Figma</option>
+          <option value="Adobe XD" <%= job.skills_required.includes('Adobe XD') ? 'selected' : '' %>>Adobe XD</option>
+          <option value="Sketch" <%= job.skills_required.includes('Sketch') ? 'selected' : '' %>>Sketch</option>
+          <!-- Other Skills -->
+          <option value="User Research" <%= job.skills_required.includes('User Research') ? 'selected' : '' %>>User Research</option>
+          <option value="Prototyping" <%= job.skills_required.includes('Prototyping') ? 'selected' : '' %>>Prototyping</option>
+          <option value="Product Management" <%= job.skills_required.includes('Product Management') ? 'selected' : '' %>>Product Management</option>
+          <option value="Agile" <%= job.skills_required.includes('Agile') ? 'selected' : '' %>>Agile</option>
+          <!-- Non-Tech Skills -->
+          <option value="Creative Writing" <%= job.skills_required.includes('Creative Writing') ? 'selected' : '' %>>Creative Writing</option>
+          <option value="Social Media Management" <%= job.skills_required.includes('Social Media Management') ? 'selected' : '' %>>Social Media Management</option>
+          <option value="Blog Writing" <%= job.skills_required.includes('Blog Writing') ? 'selected' : '' %>>Blog Writing</option>
+          <option value="Business Analyst" <%= job.skills_required.includes('Business Analyst') ? 'selected' : '' %>>Business Analyst</option>
+          <option value="Public Relation Management" <%= job.skills_required.includes('Public Relation Management') ? 'selected' : '' %>>Public Relation Management</option>
+          <option value="Advertisement" <%= job.skills_required.includes('Advertisement') ? 'selected' : '' %>>Advertisement</option>
+        </select>
+      </div>
+
+      <!-- Current Logo Display -->
+      <div class="input-group">
+        <label class="input-label">Current Logo</label>
+        <div>
+          <% if (job.logo) { %>
+            <img src="<%= job.logo %>" alt="<%= job.company_name %> Logo" 
+                 style="max-width: 100px; height: auto; border-radius: 5px; border: 1px solid #ddd; padding: 5px; background: white;" >
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Upload new logo to replace</p>
+          <% } else { %>
+            <p style="color: #999; font-style: italic;">No logo uploaded</p>
+          <% } %>
+        </div>
+      </div>
+
+      <!-- New Logo Upload -->
+      <div class="input-group">
+        <label for="logo" class="input-label">Upload New Logo (Optional)</label>
+        <input type="file" name="logo" class="input-field" accept="image/*">
+      </div>
+
+      <!-- Apply By -->
+      <div class="input-group">
+        <label for="apply_by" class="input-label">Apply By</label>
+        <% 
+          // Format date for input field (YYYY-MM-DD)
+          let applyByFormatted = '';
+          if (job.apply_by) {
+            // Try to parse the date (it's currently "1/17/2026")
+            const dateParts = job.apply_by.split('/');
+            if (dateParts.length === 3) {
+              // Convert MM/DD/YYYY to YYYY-MM-DD
+              const month = dateParts[0].padStart(2, '0');
+              const day = dateParts[1].padStart(2, '0');
+              const year = dateParts[2];
+              applyByFormatted = `${year}-${month}-${day}`;
+            }
+          }
+        %>
+        <input id="apply_by" value="<%= applyByFormatted %>"
+        name="apply_by" type="date" class="input-field" />
+      </div>
+
+      <!-- Hidden field for current logo (to keep if no new logo uploaded) -->
+      <input type="hidden" name="current_logo" value="<%= job.logo %>">
+
+      <!-- Submit Button -->
+      <button class="submit-btn" type="submit">Update Job</button>
+    </form>
+  </div>
+</div>
+
