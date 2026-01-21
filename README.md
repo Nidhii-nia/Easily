@@ -1,2 +1,0 @@
-# Easily
-An MVC application
