@@ -5,7 +5,7 @@ export async function sendMail(email, designation, name) {
         service:'gmail',
         auth:{
             user: 'nia30207@gmail.com',
-            pass: 'nhtb tlkf sfla earw'
+            pass: process.env.GMAIL_PASSCODE
         }
     });
 

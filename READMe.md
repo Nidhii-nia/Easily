@@ -1,3 +1,4 @@
+# Easily
 A full-featured job portal application that connects job seekers with employers, featuring a clean UI, job search functionality, and application management.
 Features
 1. User Features
